@@ -21,7 +21,15 @@ const fetchSubject = () => {
 
 const fetchDescription = (key) => {
     fetchData(`https://openlibrary.org${key}.json`)
-        .then(data => console.log(data.description.slice(0, data.description.indexOf("----------"))));
+        .then(data => {
+            if (typeof data.description === "object") {
+                console.log(data.description.value);
+            }else if (data.description.includes("--")){
+                console.log(data.description.slice(0, data.description.indexOf("--")))
+            } else {
+                console.log(data.description);
+            }
+        });
 }
 //===============================================
 // HELPER FUNCTIONS
@@ -34,7 +42,7 @@ const resetValues = () => {
 function generateResult(data) {
     keys = []; // Empty the array
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < data.length; i++) {
         const el = document.createElement("div");
         el.className = "border border-info w-25 mx-auto";
         const html = `<h2>Author: ${data[i].authors[0].name}</h2>
