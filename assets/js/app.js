@@ -1,6 +1,8 @@
 const userInput = document.getElementById("userInput");
 const card = document.getElementById("cardResult");
 const btnSearch = document.querySelector(".btn-search");
+const modalBody = document.querySelector(".modal-body");
+const modalTitle = document.querySelector(".modal-title");
 let keys = [];
 
 //==========================================
@@ -20,39 +22,42 @@ const fetchSubject = () => {
 }
 
 const fetchDescription = (key) => {
+    let desc = "";
     fetchData(`https://openlibrary.org${key}.json`)
         .then(data => {
             if (typeof data.description === "object") {
-                console.log(data.description.value);
+                desc = data.description.value;
             }else if (data.description.includes("--")){
-                console.log(data.description.slice(0, data.description.indexOf("--")))
+                desc = data.description.slice(0, data.description.indexOf("--"));
             } else {
-                console.log(data.description);
+                desc = data.description;
             }
+            modalTitle.textContent = `${data.title}`;
+            modalBody.innerHTML = `<p><span class="text-decoration-underline">Description</span><br><br>${desc}</p>`;
         });
 }
 //===============================================
 // HELPER FUNCTIONS
 //===============================================
-const resetValues = () => {
+function resetValues() {
     userInput.value = "";
     card.innerHTML = "";
 }
 
 function generateResult(data) {
     keys = []; // Empty the array
-
     for (let i = 0; i < data.length; i++) {
         const el = document.createElement("div");
         el.className = "border border-info w-25 mx-auto";
-        const html = `<h2>Author: ${data[i].authors[0].name}</h2>
+        const book = `<h2>Author: ${data[i].authors[0].name}</h2>
                   <h3>Title: ${data[i].title}</h3>
-                  <button class= "btn bg-info" id=button${i + 1}>Learn More</button>`;
+                  <button data-bs-toggle="modal" data-bs-target="#modalDesc" type="button" class="btn bg-info" id=button${i + 1}>Learn More</button>`;
         keys.push(data[i].key);
-        el.innerHTML = html;
+        el.innerHTML = book;
         card.appendChild(el);
     }
 }
+
 
 //=======================================================
 // EVENT LISTENERS
@@ -61,6 +66,7 @@ function generateResult(data) {
 // Add event listener on the search button
 btnSearch.addEventListener("click", fetchSubject);
 // Add event on the card using bubbling and checking only button
+
 card.addEventListener("click", (event) => {
     const r = /\d+/g;
     if(!(event.target.nodeName === "BUTTON")) {
@@ -68,4 +74,6 @@ card.addEventListener("click", (event) => {
     }
     const key = keys[Number(event.target.id.match(r)) - 1]; 
     fetchDescription(key);
+    document.getElementById("modalDesc").removeChild();
 })
+
