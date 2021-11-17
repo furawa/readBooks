@@ -54,7 +54,7 @@ function generateResult(data) {
         el.className = "border border-info w-25 mx-auto";
         const book = `<h2>Author: ${data[i].authors[0].name}</h2>
                   <h3>Title: ${data[i].title}</h3>
-                  <button data-bs-toggle="modal" data-bs-target="#modalDesc" type="button" class="btn bg-info" id=button${i + 1}>Learn More</button>`;
+                  <button data-bs-toggle="modal" data-bs-target="#modalDesc" type="button" class="btn btnt bg-info" id=button${i + 1}>Learn More</button>`;
         keys.push(data[i].key);
         el.innerHTML = book;
         card.appendChild(el);
@@ -85,7 +85,7 @@ userInput.addEventListener("keyup", event => {
 })
 
 
-// Add event on the card using bubbling and checking only button
+// Add event on the card using bubbling and checking only the buttons
 card.addEventListener("click", (event) => {
     const r = /\d+/g;
     if(!(event.target.nodeName === "BUTTON")) {
@@ -94,4 +94,3 @@ card.addEventListener("click", (event) => {
     const key = keys[Number(event.target.id.match(r)) - 1]; 
     fetchDescription(key);
 })
-
