@@ -51,10 +51,10 @@ function generateResult(data) {
     keys = []; // Empty the array
     for (let i = 0; i < data.length; i++) {
         const el = document.createElement("div");
-        el.className = "border border-info w-25 mx-auto";
-        const book = `<h2>Author: ${data[i].authors[0].name}</h2>
-                  <h3>Title: ${data[i].title}</h3>
-                  <button data-bs-toggle="modal" data-bs-target="#modalDesc" type="button" class="btn btnt bg-info" id=button${i + 1}>Learn More</button>`;
+        el.className = "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between border rounded-3 border-info";
+        const book = `<h2>Author</h2> <p>${data[i].authors[0].name}</p>
+                  <h3>Title</h3><p>${data[i].title}</p>
+                  <button data-bs-toggle="modal" data-bs-target="#modalDesc" type="button" class="align-self-center btn btnt bg-info" id=button${i + 1}>Learn More</button>`;
         keys.push(data[i].key);
         el.innerHTML = book;
         card.appendChild(el);
