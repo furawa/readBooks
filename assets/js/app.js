@@ -58,6 +58,7 @@ function generateResult(data) {
         keys.push(data[i].key);
         el.innerHTML = book;
         card.appendChild(el);
+        card.scrollIntoView();
     }
 }
 
