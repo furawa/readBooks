@@ -17,7 +17,7 @@ const fetchData = async url => {
 }
 
 function fetchSubject() {
-    const subject = userInput.value;
+    const subject = userInput.value.toLowerCase();
     fetchData(`https://openlibrary.org/subjects/${subject}.json`)
         .then(data => generateResult(data.works));
     resetValues();
