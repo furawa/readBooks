@@ -28,14 +28,15 @@ const fetchDescription = key => {
     fetchData(`https://openlibrary.org${key}.json`)
         .then(data => {
             if (typeof data.description === "object") {
-                desc = data.description.value;
-            }else if (data.description.includes("--")){
-                desc = data.description.slice(0, data.description.indexOf("--"));
+                desc = data.description.value.split("--")[0];
+            } else if (typeof data.description == "string") {
+                desc = data.description.split("--")[0];
             } else {
-                desc = data.description;
+                desc = "Sorry! There is No description available for this Book";
             }
             modalTitle.textContent = `${data.title}`;
             modalBody.innerHTML = `<p><span class="text-decoration-underline">Description</span><br><br>${desc}</p>`;
+            console.log(desc.includes("Also contained"));
         });
 }
 
