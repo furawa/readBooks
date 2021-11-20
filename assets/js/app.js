@@ -3,6 +3,8 @@ const card = document.getElementById("cardResult");
 const btnSearch = document.querySelector(".btn-search");
 const modalBody = document.querySelector(".modal-body");
 const modalTitle = document.querySelector(".modal-title");
+const error = document.getElementById("error");
+
 let keys = [];
 
 //==========================================
@@ -13,11 +15,16 @@ const fetchData = async url => {
         return  await fetch(url)
                 .then(checkStatus)
                 .then(res => res.json())
-                .catch(error => alert("Looks like there was a problem with this request!", error));
+                .catch(error =>  {
+                    console.log(error);
+                    showInputErrorMessage("No such category. Please try again");
+                })
+            
+                    
 }
 
-function fetchSubject() {
-    const subject = userInput.value.toLowerCase();
+const fetchSubject = (subj) => {
+    let subject = checkUserInput(subj);
     fetchData(`https://openlibrary.org/subjects/${subject}.json`)
         .then(data => generateResult(data.works));
     resetValues();
@@ -36,7 +43,6 @@ const fetchDescription = key => {
             }
             modalTitle.textContent = `${data.title}`;
             modalBody.innerHTML = `<p><span class="text-decoration-underline">Description</span><br><br>${desc}</p>`;
-            console.log(desc.includes("Also contained"));
         });
 }
 
@@ -71,12 +77,35 @@ const checkStatus = response => {
     }
 }
 
+const checkUserInput = (val = "") => {
+    let message = "";
+    if (val == "") {
+        message =  "No empty string allowed! You should Enter a book category";
+        showInputErrorMessage(message);
+        // return "fantasy";
+    } else if (typeof Number(val) === "number" && !isNaN(Number(val))) {
+        message = `${val} is not a book category, you should enter a word as fantasy`;
+        showInputErrorMessage(message);
+    } else if (val.split(" ").length > 1) {
+        return val.split(" ")[0].toLowerCase();
+    } else {
+        error.className = "invisible";
+        return val.toLowerCase();
+    }
+}
+
+const showInputErrorMessage = (msg) => {
+    error.textContent = msg;
+    error.className = "d-inline-block border bg-danger text-light mb-2";
+}
 //=======================================================
 // EVENT LISTENERS
 //=======================================================
 
 // Add event listener on the search button
-btnSearch.addEventListener("click", fetchSubject);
+btnSearch.addEventListener("click", () => {
+    fetchSubject(userInput.value)
+});
 
 // Allow to search by using the Enter key
 userInput.addEventListener("keyup", event => {
