@@ -51,7 +51,7 @@ function generateResult(data) {
     keys = []; // Empty the array
     for (let i = 0; i < data.length; i++) {
         const el = document.createElement("div");
-        el.className = "col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-between border rounded-3 border-info";
+        el.className = "col-6 col-md-4 col-lg-3 m-2 d-flex flex-column justify-content-between border rounded-3 border-info";
         const book = `<h2>Author</h2> <p>${data[i].authors[0].name}</p>
                   <h3>Title</h3><p>${data[i].title}</p>
                   <button data-bs-toggle="modal" data-bs-target="#modalDesc" type="button" class="align-self-center btn btnt bg-info" id=button${i + 1}>Learn More</button>`;
