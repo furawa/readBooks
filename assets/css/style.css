@@ -1,0 +1,22 @@
+.carousel {
+    width: 500px;
+    height: 339px;
+}
+header {
+    margin-bottom: 100px;
+}
+@media screen and (max-width: 576px) {
+    .carousel {
+        display: none;
+    }
+    header {
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .carousel {
+        width: 764px;
+        height: 464px;
+    }
+}
