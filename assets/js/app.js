@@ -18,13 +18,12 @@ const fetchData = async url => {
                 .catch(error =>  {
                     console.log(error);
                     showInputErrorMessage("No such category. Please try again");
-                })
-            
-                    
+                })   
 }
 
 const fetchSubject = (subj) => {
     let subject = checkUserInput(subj);
+    
     fetchData(`https://openlibrary.org/subjects/${subject}.json`)
         .then(data => generateResult(data.works));
     resetValues();
@@ -82,7 +81,6 @@ const checkUserInput = (val = "") => {
     if (val == "") {
         message =  "No empty string allowed! You should Enter a book category";
         showInputErrorMessage(message);
-        // return "fantasy";
     } else if (typeof Number(val) === "number" && !isNaN(Number(val))) {
         message = `${val} is not a book category, you should enter a word as fantasy`;
         showInputErrorMessage(message);
