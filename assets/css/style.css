@@ -5,12 +5,42 @@
 header {
     margin-bottom: 100px;
 }
-@media screen and (max-width: 576px) {
+
+@media screen and (max-width: 425px) {
     .carousel {
         display: none;
     }
+    .presentation {
+        display: block !important;
+    }
+}
+@media screen and (min-width: 426px) and (max-width: 575.98px) {
+    
+    .carousel {
+        width: 420px;
+        height: 259px;
+    }
+    .presentation {
+        display: none !important;
+    }
     header {
         margin-bottom: 50px;
+    }
+
+    .input-group {
+        width: 80% !important;
+    }
+
+    .input-group :-ms-input-placeholder {
+        font-size: 0.8rem;
+    }
+
+    .input-group input[placeholder]{
+        font-size: 0.8rem;
+    }
+
+    .input-group ::-webkit-input-placeholder {
+        font-size: 0.8rem;
     }
 }
 
