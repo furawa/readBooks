@@ -21,7 +21,8 @@ const resetValues = () => {
 // Function to  generate each div for each book 
 const generateResult = (data) => {
     keys = []; // Empty the array where keys will be stored
-    card.innerHTML = ""; // Remove the loading message
+    // Check if there is a result from the fetch if not show a message
+    data.length == 0 ? card.innerHTML = `<p class="display-3">No Result Found!</p>`: card.innerHTML = "";
     // Loop through the array of results from the fetched data
     for (let i = 0; i < data.length; i++) {
         const el = document.createElement("div"); // Create a div
