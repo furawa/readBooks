@@ -9,7 +9,6 @@ const fetchData = async url => {
                 .then(res => res.json()) // Turn the response into json file
                 .catch(error =>  {       // Catch a potential error
                     console.log(error);  // Log the error in the console
-                    showInputErrorMessage("No such category. Please try again"); // Show an error message 
                 })   
 }
 
@@ -17,7 +16,10 @@ const fetchData = async url => {
 const fetchSubject = (subj) => {
     let subject = checkUserInput(subj); // Check the user input
     fetchData(`https://openlibrary.org/subjects/${subject}.json`)
-        .then(data => generateResult(data.works)); // Generate the result section
+        .then(data => loadResults(data.works)) // Generate the result section
+        .catch(error => {
+            console.log(error);  // Log the error in the console
+        });
     resetValues(); // Reset the values of the section
 }
 
@@ -36,12 +38,14 @@ const fetchDescription = key => {
             modalTitle.textContent = `${data.title}`; // Insert the title of the modal view
             // Insert the body of the modal view
             modalBody.innerHTML = `<p><span class="text-decoration-underline">Description</span><br><br>${desc}</p>`;
-        });
+        })
 }
 
 // Function to check the status of the fetch response
 const checkStatus = response => {
-    if(response.ok) {
+    // If the input variable is undefined the response will be ok, 
+    // consider an ok response only if undefined is not in the url
+    if(response.ok === true && !response.url.includes("undefined")) {
         return Promise.resolve(response);
     } else {
         return Promise.reject(new Error(response.statusText));
@@ -49,7 +53,7 @@ const checkStatus = response => {
 }
 
 // Function to check the user input and parse it if necessary
-const checkUserInput = (val = "") => {
+const checkUserInput = (val) => {
     let message = ""; // Variable to store the error message
     if (val == "") {
         message =  "No empty string allowed! You should Enter a book category";

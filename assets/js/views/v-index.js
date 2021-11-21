@@ -7,19 +7,21 @@ const modalBody = document.querySelector(".modal-body"); // Body of the modal vi
 const modalTitle = document.querySelector(".modal-title"); // Title of the modal view
 const error = document.getElementById("error"); // Div for the error message
 let keys = [];
+
 //===============================================
 // HELPER FUNCTIONS
 //===============================================
 
-// Funciton to reset the input and the section result content
-function resetValues() {
+// Function to reset the input and the section result content
+const resetValues = () => {
     userInput.value = "";
     card.innerHTML = "";
 }
 
 // Function to  generate each div for each book 
-function generateResult(data) {
+const generateResult = (data) => {
     keys = []; // Empty the array where keys will be stored
+    card.innerHTML = ""; // Remove the loading message
     // Loop through the array of results from the fetched data
     for (let i = 0; i < data.length; i++) {
         const el = document.createElement("div"); // Create a div
@@ -48,6 +50,14 @@ const showInputErrorMessage = (msg) => {
     error.className = "d-inline-block border bg-danger text-light mb-2";
 }
 
+
+// Function to load the results after an amount of time
+const loadResults = (data) => {
+    card.innerHTML = `<p class="display-2">Loading...</p>`;
+    setTimeout(() => {
+        generateResult(data);
+    },3000);
+}
 //=======================================================
 // EVENT LISTENERS
 //=======================================================
@@ -64,7 +74,6 @@ userInput.addEventListener("keyup", event => {
         btnSearch.click();
     }
 })
-
 
 // Add event on the card using bubbling and checking only the buttons
 card.addEventListener("click", (event) => {
