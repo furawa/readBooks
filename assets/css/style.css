@@ -9,7 +9,7 @@ header {
     margin-bottom: 100px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 374.98px) {
     .carousel {
         display: none;
     }
