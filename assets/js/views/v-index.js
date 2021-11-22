@@ -48,7 +48,7 @@ const generateResult = (data) => {
 // Function to show the error message
 const showInputErrorMessage = (msg) => {
     error.textContent = msg;
-    error.className = "d-inline-block border bg-danger text-light mb-2";
+    error.className = "visible p-1 w-75 mx-auto text-light mb-2";
 }
 
 

@@ -1,5 +1,5 @@
 body {
-    background-color:honeydew;
+    background-color:#f1faee;
 }
 .carousel {
     width: 500px;
@@ -8,7 +8,46 @@ body {
 header {
     margin-bottom: 100px;
 }
+h1 {
+    color: #457B9D;
+}
+.btn-search {
+    background-color: #457B9D;
+}
+.btn-search:hover, .btnt:hover{
+    background-color: #A8DADC !important;
+}
 
+.btnt {
+    background-color: #1D3557 !important;
+    color: white !important;
+}
+#error {
+    background-color: #E63946;
+    position: relative;
+    font-size: 0.8rem;
+}
+#error::after {
+    content : "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border: 8px solid;
+    border-color: #E63946 transparent transparent transparent;
+}
+main p {
+    color: #1D3557;
+}
+
+.result {
+    margin: 5px;
+}
+.presentation {
+    background-color: #1D3557;
+}
+footer {
+    background-color: #1D3557;
+}
 @media screen and (max-width: 320px) {
     .carousel {
         display: none;
@@ -16,25 +55,18 @@ header {
     .presentation {
         display: block !important;
     }
-    .input-group {
-        width: 90% !important;
-    }
 }
 @media screen and (min-width: 320.2px) and (max-width: 575.98px) {
     
     .carousel {
-        width: 80%;
-        height: 80%;
+        width: 320px;
+        height: 220px;
     }
     .presentation {
         display: none !important;
     }
     header {
         margin-bottom: 50px;
-    }
-
-    .input-group {
-        width: 80% !important;
     }
 
     .input-group :-ms-input-placeholder {
@@ -55,8 +87,10 @@ header {
         width: 764px;
         height: 464px;
     }
+
+    .input-group {
+        width: 70% !important;
+    }
 }
 
-.result {
-    margin: 5px;
-}
+

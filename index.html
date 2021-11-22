@@ -13,14 +13,14 @@
   </head>
   <body class="text-center text-dark">
     <header class="container">
-      <h1 class="display-1 mb-5">Read Books</h1>
+      <h1 class="display-1 mb-5 mt-3">Read Books</h1>
       <!-- Carousel -->
-      <div class="presentation text-start d-block d-sm-none">
+      <div class="presentation text-light d-block d-sm-none p-2 border rounded">
         <h2>3 Good reasons to read a book</h2>
-        <ol>
-          <li>Reading can unleash your brain</li>
-          <li>Reading can improve your Focus</li>
-          <li>Reading can improve your mental Health</li>
+        <ol class="text-start">
+          <li>Reading can unleash your <i class="text-info">Brain</i></li>
+          <li>Reading can improve your <i class="text-info">Focus</i></li>
+          <li>Reading can improve your <i class="text-info">Mental Health</i></li>
         </ol>
       </div>
       <div id="carouselExampleCaptions" class="mx-auto carousel slide carousel-fade" data-bs-ride="carousel">
@@ -68,11 +68,11 @@
     
     <!-- Main section to search -->
     <main class="container mb-5">
-      <p class="lead mb-3">Find the next book that will add more value to your life</p>
-      <span id="error" class= "invisible">message</span>
-      <div class="input-group mb-4 w-75 mx-auto">
+      <p class="lead">Find the next book that will add more value to your life</p>
+      <div id="error" class= "invisible mb-2">message</div>
+      <div class="input-group mb-4 w-100 mx-auto">
           <input id="userInput" type="text" class="form-control" placeholder="Search for a Book category - Love" aria-label="Book category" aria-describedby="button-addon2">
-          <button class="btn btn-search btn-outline-light bg-primary" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+          <button class="btn btn-search btn-outline-light" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
       </div>
     </main>
 
@@ -96,8 +96,8 @@
       </div>
     </div>
     <!--Footer Section-->
-    <footer class="text-light container-fluid bg-black fixed-bottom">
-      <p>&copy;Furawa 2021. A big thanks to <a href="https://openlibrary.org/">Open Library</a></p>
+    <footer class="text-light container-fluid p-2 fixed-bottom">
+      <p class="my-auto">&copy;Furawa 2021. A big thanks to <a class="link-info" href="https://openlibrary.org/">Open Library</a></p>
     </footer>
     <script src="assets/js/views/v-index.js"></script>
     <script src="assets/js/controllers/c-index.js"></script>
