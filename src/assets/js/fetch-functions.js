@@ -9,7 +9,7 @@ const modalTitle = document.querySelector(".modal-title"); // Title of the modal
 // Function to fetch the subject or category
 export function fetchSubject(subj) {
     let subject = checkUserInput(subj); // Check the user input
-    fetchData(`https://openlibrary.org/subjects/${subject}.json`)
+    fetchData(`${process.env.BOOK_URL}/subjects/${subject}.json`)
         .then(data => loadResults(data.works)) // Generate the result section
         .catch(error => {
             console.log(error); // Log the error in the console
@@ -20,7 +20,7 @@ export function fetchSubject(subj) {
 // Function to fetch the description
 export function fetchDescription(key) {
     let desc = ""; // Initialize the variable to store the description
-    fetchData(`https://openlibrary.org${key}.json`)
+    fetchData(`${process.env.BOOK_URL}${key}.json`)
         .then(data => {
             if (typeof data.description === "object") { // Check if it is an object
                 desc = data.description.value.split("--")[0]; // If so the description is in value
