@@ -1,9 +1,4 @@
 <div id="top"></div>
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -46,7 +41,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -54,29 +48,24 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project  
 
-[![Read Books screenshot][".src/assets/images/readbooks_screenshot-average"]](https://readbooks-daily.netlify.app)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `furawa`, `readBooks`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+<a href="https://readbooks-daily.netlify.app">
+  <img src="./src/assets/images/readbooks_screenshot-average.png">
+</a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
 * [JavaScript](https://www.w3schools.com/js/)
-* [HTML](https://www.w3schools.com/html/
+* [HTML](https://www.w3schools.com/html/)
 * [CSS](https://www.w3schools.com/css/)
 * [Bootstrap](https://getbootstrap.com)
+* [Bootstrap-icons](https://icons.getbootstrap.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -121,10 +110,6 @@ npm run build
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -153,7 +138,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 ## Contact
-email: frankenprofessional@gmail.com
+email: frankenprofessional@gmail.com  
 Project Link: [https://github.com/furawa/readBooks](https://github.com/furawa/readBooks)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
