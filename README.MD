@@ -9,8 +9,8 @@
 <h3 align="center">Read Books Daily</h3>
 
   <p align="center">
-    A simple app that fetch books from an url based on a choosen subject. 
-    The app will visualize the books available in that category.  
+    A simple app that fetch books from an url based on a choosen subject.   
+    The app will visualize the books available in that category.      
     The user can visualize the description of each book by clicking a button. 
     <br />
     <a href="https://readbooks-daily.netlify.app">View Demo</a>
@@ -50,11 +50,11 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project  
-
-<a href="https://readbooks-daily.netlify.app">
-  <img src="./src/assets/images/readbooks_screenshot-average.png">
-</a>
-
+<div align="center">
+  <a href="https://readbooks-daily.netlify.app">
+    <img src="./src/assets/images/readbooks_screenshot-average.jpeg">
+  </a>
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
