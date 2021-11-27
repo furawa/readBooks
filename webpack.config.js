@@ -1,10 +1,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
+
 module.exports = {
     mode: "development",
     entry: {
         index: path.resolve(__dirname, "./src/index.js"),
+        style: path.resolve(__dirname, "./src/style.js"),
     },
 
     output: {
@@ -23,6 +25,7 @@ module.exports = {
         new Dotenv({
             systemvars: true,
         }),
+       
     ],
     
     module: {
@@ -48,7 +51,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                use: ["style-loader", "css-loader"],
+               
             },
         ]
     },
