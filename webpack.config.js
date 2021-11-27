@@ -20,7 +20,9 @@ module.exports = {
             template: path.resolve(__dirname, "./src/index.html"),
             inject: "body",
         }),
-        new Dotenv(),
+        new Dotenv({
+            systemvars: true,
+        }),
     ],
     
     module: {
