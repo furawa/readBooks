@@ -7,6 +7,7 @@ let previousSubject = "";
 // Function to fetch the subject or category
 export const fetchSubject = async (subj) => {
     const subject = checkUserInput(subj); // Check the user input
+    // If the actual value is the same as the previous we don't load the page again
     if (subject === previousSubject) {
         userInput.value = "";
         return;
