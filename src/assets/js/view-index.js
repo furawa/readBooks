@@ -1,9 +1,7 @@
 // Retrieve the needed elements 
-
 export const userInput = document.getElementById("userInput"); // Input element
 export const card = document.getElementById("cardResult"); // Section of the book results
 const error = document.getElementById("error"); // Div for the error message
-// Retrieve the elements
 const modalBody = document.querySelector(".modal-body"); // Body of the modal view
 const modalTitle = document.querySelector(".modal-title"); // Title of the modal view
 export let keys = [];
