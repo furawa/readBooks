@@ -15,8 +15,10 @@ function checkStatus(response) {
 }
 
 // Function to check the user input and parse it if necessary
-export function checkUserInput(val) {
+export function checkUserInput(value) {
     let message = ""; // Variable to store the error message
+    const val = value.trim();
+    
     if (val == "") {
         message = "No empty string allowed! You should Enter a book category";
         showInputErrorMessage(message);
@@ -32,11 +34,23 @@ export function checkUserInput(val) {
 }
 
 //Function to fetch an url
-export async function fetchData(url) {
-    return await fetch(url) // Fetch the url
-        .then(checkStatus) // Check the status of the response
-        .then(res => res.json()) // Turn the response into json file
-        .catch(error => {
-            console.log(error); // Log the error in the console
-        });
+export const fetchData = async url => {
+    try {
+        const data =  await fetch(url) // Fetch the url
+        const response = await checkStatus(data);
+        return response.json(); 
+    }catch(error) {
+        console.log(error); // Log the error in the console
+    }
+}
+
+// Function to parse the description as there are strings not needed
+export const parseDescription = desc => {
+    if (typeof desc === "object") { // Check if it is an object
+        return desc.value.split("--")[0]; // If so the description is in value
+    } else if (typeof desc == "string") {
+        return desc.split("--")[0]; // else if string the description is in description, both case we remove the links after ---
+    } else {
+        return "Sorry! There is No description available for this Book"; // otherwise there is no description
+    }
 }

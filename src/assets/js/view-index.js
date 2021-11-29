@@ -1,7 +1,11 @@
 // Retrieve the needed elements 
+
 export const userInput = document.getElementById("userInput"); // Input element
 export const card = document.getElementById("cardResult"); // Section of the book results
 const error = document.getElementById("error"); // Div for the error message
+// Retrieve the elements
+const modalBody = document.querySelector(".modal-body"); // Body of the modal view
+const modalTitle = document.querySelector(".modal-title"); // Title of the modal view
 export let keys = [];
 
 // Function to reset the input and the section result content
@@ -43,11 +47,16 @@ export const showInputErrorMessage = (msg) => {
     error.className = "visible p-1 w-75 mx-auto text-light mb-2";
 }
 
-
 // Function to load the results after an amount of time
 export const loadResults = (data) => {
     card.innerHTML = `<p class="display-2">Loading...</p>`;
     setTimeout(() => {
         generateResult(data);
     },3000);
+}
+
+export const generateModal = (title, desc) => {
+    modalTitle.textContent = `${title}`; // Insert the title of the modal view
+    // Insert the body of the modal view
+    modalBody.innerHTML = `<p><span class="text-decoration-underline">Description</span><br><br>${desc}</p>`;
 }
